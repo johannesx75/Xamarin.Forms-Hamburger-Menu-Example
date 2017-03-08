@@ -18,8 +18,10 @@ namespace HamburgerMenuExample {
 			App.MenuIsPresented = false;
 		}
 
-		void GoSecond(object obj) {
-			App.NavigationPage.Navigation.PushAsync(new SecondPage());
+		async void GoSecond(object obj) {
+			var secondPage = new SecondPage();
+			NavigationPage.SetHasBackButton(secondPage, false);
+			await App.NavigationPage.Navigation.PushAsync(secondPage);
 			App.MenuIsPresented = false;
 		}
 	}
